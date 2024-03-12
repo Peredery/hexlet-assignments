@@ -13,8 +13,10 @@ table.table.table-striped.table-hover.mb-5
   thead
     tr
       th{ scope = 'col' } #
-      th{ scope = 'col' } Title
-      th{ scope = 'col' } State
+      th{ scope = 'col'}
+        = sort_link @q, :title, 'Title'
+      th{ scope = 'col' }
+        = sort_link @q, :aasm_state, 'State'
       th
 
   tbody
