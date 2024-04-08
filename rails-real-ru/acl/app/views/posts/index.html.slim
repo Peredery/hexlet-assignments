@@ -1,0 +1,32 @@
+= content_for :title do
+  / page title (h2)
+  = t('.title')
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } #
+      th
+        / table title
+        = t('.table_title')
+      th
+      th
+
+  tbody
+    - @posts.each_with_index do |post, i|
+      tr
+        th{ scope = 'row' } = i + 1
+        td = post.title
+        td.d-flex
+          / posts links
+          = link_to t('show'), post, class: 'me-4'
+          / BEGIN
+          - if policy(post).destroy?
+            = link_to t('delete'), post, method: :delete, data: { turbo_confirm: t('are_you_sure') }, class: 'text-danger'
+          / END
+
+/ new post link
+/ BEGIN
+- if policy(Post).new?
+  = link_to t('new'), new_post_path, class: 'btn btn-primary'
+/ END
