@@ -21,12 +21,10 @@ table.table.table-striped.table-hover.mb-5
           / posts links
           = link_to t('show'), post, class: 'me-4'
           / BEGIN
-          - if policy(post).destroy?
-            = link_to t('delete'), post, method: :delete, data: { turbo_confirm: t('are_you_sure') }, class: 'text-danger'
+          
           / END
 
 / new post link
 / BEGIN
-- if policy(Post).new?
-  = link_to t('new'), new_post_path, class: 'btn btn-primary'
+
 / END
