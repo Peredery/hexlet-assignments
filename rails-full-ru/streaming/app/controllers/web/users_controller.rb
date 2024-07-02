@@ -67,6 +67,7 @@ class Web::UsersController < Web::ApplicationController
     response.headers['Content-Disposition'] = 'attachment; filename="users.csv"'
     response.stream.write CSV.generate_line(User.column_names)
 
+    # 500 error after this
     User.find_each do |user|
       response.stream.write CSV.generate_line(user.attributes.values_at(*User.column_names))
     end
