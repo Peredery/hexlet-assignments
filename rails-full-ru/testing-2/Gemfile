@@ -42,7 +42,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # BEGIN
-gem 'octokit'
+gem 'octokit', '8.1.0'
 # END
 
 group :development, :test do
